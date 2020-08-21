@@ -63,7 +63,6 @@ const [isTsarevecFree, isArbanasiFree] = useMemo(()=>{
   checkAvailability(selectedDate,'Arbanasi',parseInt(form.starts),parseInt(form.ends)<parseInt(form.starts)? parseInt(form.starts): parseInt(form.ends))
 ]
 },[form, checkAvailability,selectedDate])
-console.log(isTsarevecFree, isArbanasiFree)
 
   return (
       <div className='flex column newevent'>

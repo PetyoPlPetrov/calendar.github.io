@@ -1,6 +1,6 @@
 # Calendar
 
-This repository will present a calendar/event schedule application. The boilerplate is create-react-app. The calendar is built from scrach in plain css using css grid and flexbox.
+This repository will present a calendar/event schedule application. The boilerplate is create-react-app. The calendar is built from scrach in plain css using css grid and flexbox. There is a mobile version.
 
 ## Setting up the project
 
