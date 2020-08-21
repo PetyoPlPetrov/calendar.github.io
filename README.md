@@ -22,7 +22,7 @@ It can be accessed  directly in https://petyoplpetrov.github.io/calendar.github.
             - right view with calendar and event creation 
             - styles
             - utils
-            - tests***
+            - tests
 
 ```
 
@@ -35,8 +35,7 @@ It can be accessed  directly in https://petyoplpetrov.github.io/calendar.github.
 ## Constraints
 1. The application works with whole hours - every meet can starts/ends on 8:00, 9:00 etc... It cannot currently use part-time as 09:15
 2. There is no proper error messages and warnings for the event creation.
-3. The event start time is read only field. If one needs to change he start time it should press `cancel` and start over with the event creation.
-4. The event ends is numeric field - with min - max value 0 - 24. You better use the scroll to set the value.
+4. The event starts/ends are numeric fields - with min - max value 0 - 24. You better use the scroll to set the values.
 4. When day or month are changed, the event creation form is reset and closed. One must start over.
 
 ## Interesting facts

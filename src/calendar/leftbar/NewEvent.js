@@ -15,7 +15,8 @@ function NewEvent({event}) {
   const selectedDate = getSelectedDay(date,selectedDay);
 
   const onSave = useCallback(()=>{
-            if(form.starts >=form.ends || form.room ==='empty'){
+
+            if(parseInt(form.starts) >=parseInt(form.ends) || form.room ==='empty'){
               setError(true);
               return
             }
@@ -25,7 +26,7 @@ function NewEvent({event}) {
             const hasFreeSlot = checkAvailability(currentSelectedDay,form.room, form.starts, form.ends-1);
 
              if(hasFreeSlot){
-              let meet = {...form,starts: form.starts, ends: parseInt(form.ends), room: form.room, created:true};
+              let meet = {...form,starts: parseInt(form.starts), ends: parseInt(form.ends), room: form.room, created:true};
 
               events[currentSelectedDay].push(meet);
  
@@ -58,17 +59,17 @@ function NewEvent({event}) {
   },[ setForm, setError,error ]);
 
 const [isTsarevecFree, isArbanasiFree] = useMemo(()=>{
-  return [checkAvailability(selectedDate,'Tsarevets',form.starts,form.ends<form.starts? form.starts: form.ends),
-  checkAvailability(selectedDate,'Arbanasi',form.starts,form.ends<form.starts? form.starts: form.ends)
+  return [checkAvailability(selectedDate,'Tsarevets',parseInt(form.starts),parseInt(form.ends)<parseInt(form.starts)? parseInt(form.starts): parseInt(form.ends)),
+  checkAvailability(selectedDate,'Arbanasi',parseInt(form.starts),parseInt(form.ends)<parseInt(form.starts)? parseInt(form.starts): parseInt(form.ends))
 ]
-
 },[form, checkAvailability,selectedDate])
+console.log(isTsarevecFree, isArbanasiFree)
 
   return (
       <div className='flex column newevent'>
          New Event
          <div>Name<input value={form.name} onChange={onChange('name')}  ></input></div>
-         <div>Starts<input disabled value={event.starts} readOnly ></input></div>
+         <div>Starts<input  value={form.starts} type='number' onChange={onChange('starts')} ></input></div>
          <div>Ends
           <input value={Math.min(form.ends,24)} type='number'  onChange={onChange('ends')}></input>
         </div>
