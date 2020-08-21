@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/PetyoPlPetrov/calendar.github.io.git/static/css/main.6fdc1dcf.chunk.css",
+    "main.js": "/PetyoPlPetrov/calendar.github.io.git/static/js/main.38aafda8.chunk.js",
+    "main.js.map": "/PetyoPlPetrov/calendar.github.io.git/static/js/main.38aafda8.chunk.js.map",
+    "runtime-main.js": "/PetyoPlPetrov/calendar.github.io.git/static/js/runtime-main.1e16803a.js",
+    "runtime-main.js.map": "/PetyoPlPetrov/calendar.github.io.git/static/js/runtime-main.1e16803a.js.map",
+    "static/js/2.86f6d680.chunk.js": "/PetyoPlPetrov/calendar.github.io.git/static/js/2.86f6d680.chunk.js",
+    "static/js/2.86f6d680.chunk.js.map": "/PetyoPlPetrov/calendar.github.io.git/static/js/2.86f6d680.chunk.js.map",
+    "index.html": "/PetyoPlPetrov/calendar.github.io.git/index.html",
+    "precache-manifest.36e2cc7559f93977a7df847f611d1a9a.js": "/PetyoPlPetrov/calendar.github.io.git/precache-manifest.36e2cc7559f93977a7df847f611d1a9a.js",
+    "service-worker.js": "/PetyoPlPetrov/calendar.github.io.git/service-worker.js",
+    "static/css/main.6fdc1dcf.chunk.css.map": "/PetyoPlPetrov/calendar.github.io.git/static/css/main.6fdc1dcf.chunk.css.map",
+    "static/js/2.86f6d680.chunk.js.LICENSE.txt": "/PetyoPlPetrov/calendar.github.io.git/static/js/2.86f6d680.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/PetyoPlPetrov/calendar.github.io.git/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1e16803a.js",
+    "static/js/2.86f6d680.chunk.js",
+    "static/css/main.6fdc1dcf.chunk.css",
+    "static/js/main.38aafda8.chunk.js"
+  ]
+}
