@@ -1,68 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Calendar
 
-## Available Scripts
+This repository will present a calendar/event schedule application. The boilerplate is create-react-app.The calendar is built from scrach in plain css using css grid and flexbox. Chromium just landed its flexbox gap property, so here we are. The plain css also have variables, we dont need preprocessor for that case. Look at /calendar/styles/Calendar.css
 
-In the project directory, you can run:
+## Setting up the project
 
-### `yarn start`
+1. Clone the repository on master branch(it is the default one)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+   - the library source code is located into `src` folder
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. To **install dependencies** execute in the terminal `npm install`
 
-### `yarn test`
+It can be accessed  directly in https://petyoplpetrov.github.io/calendar.github.io/
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project structure
 
-### `yarn build`
+```
+    - project root
+        - calendar
+            - mock data seed
+            - left view with hours 
+            - right view with calendar and event creation 
+            - styles
+            - utils
+            - tests***
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Usage
+1. From the data seed the Calendar is populated with scheduled events.
+2. Creating events with the following properties - start time, end time, room, meet name. 2 events on the same time in the same room cannot exist.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Constraints
+1. The application works with whole hours - every meet can starts/ends on 8:00, 9:00 etc... It cannot currently use part-time as 09:15
+2. There is no proper error messages and warnings for the event creation.
+3. The event start time is read only field. If one needs to change he start time it should press `cancel` and start over with the event creation.
+4. The event ends is numeric field - with min - max value 0 - 24. You better use the scroll to set the value.
+4. When day or month are changed, the event creation form is reset and closed. One must start over.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Authors
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- **Petyo Petrov**
