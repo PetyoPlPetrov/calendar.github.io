@@ -1,0 +1,85 @@
+:root {
+    --main-color: #cbe29c;
+    --secondary-color:#9bc740;
+    --selectedDay: gray;
+    --weekdays: black;
+    --currentDay: red;
+    --error: red;
+  }
+
+.wrapper{
+    display: grid;
+    border: solid black 2px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    background-color:var(--main-color);
+
+}
+
+.hours{
+    border: solid 2px;
+    min-width: 20em;
+    background-color: white;
+
+}
+
+.days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 1rem;
+    border: dashed black 2px;
+    background-color: white;
+
+}
+
+.line{
+    margin-left: 2px;;
+    border: 1px dashed var(--selectedDay);
+    width: 100%; 
+}
+
+
+.weekdays{
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--weekdays);
+    color: white;
+}
+
+.hasEvent::after{
+    content: "*";
+}
+
+.currentDay{
+    background-color: var(--currentDay);
+    border-radius: 50%;
+}
+
+.redCell{
+    background-color: var( --error);
+}
+
+.selectedDay{
+    background-color: var(--selectedDay);
+}
+
+.hasScheduledMeet{
+    background-color: var( --secondary-color);
+    border-bottom: 0px;
+}
+.newevent{
+    margin-top: 1em;
+}
+.error{
+   color: var( --error);
+}
+.controls{
+    gap: 3px;
+    margin: 3px;
+}
+@media only screen and (min-width: 800px) {
+    .wrapper {
+      width: 60%;
+    }
+  }
+
