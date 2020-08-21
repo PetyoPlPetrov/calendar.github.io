@@ -68,7 +68,7 @@ const [isTsarevecFree, isArbanasiFree] = useMemo(()=>{
       <div className='flex column newevent'>
          New Event
          <div>Name<input value={form.name} onChange={onChange('name')}  ></input></div>
-         <div>Starts<input value={event.starts} readOnly ></input></div>
+         <div>Starts<input disabled value={event.starts} readOnly ></input></div>
          <div>Ends
           <input value={Math.min(form.ends,24)} type='number'  onChange={onChange('ends')}></input>
         </div>
