@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import './styles/Common.css';
 import './styles/Calendar.css';
-import CalendarBar from './rightbar/CalendarBar'
-import DetailedTime from './leftbar/DetailedTime'
+import CalendarBar from './leftSection/CalendarBar'
+import DetailedTime from './rightSection/DetailedTime'
 import moment from 'moment'
 import useStorage from './utils/useStorage';
 import { fillRooms,fetchData } from './utils/';
