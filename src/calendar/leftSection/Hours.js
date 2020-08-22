@@ -32,7 +32,7 @@ const Line = ({ hour })=>{
         className={`line ${hasScheduledMeet && 'hasScheduledMeet'}`}
         onClick={hasFreeSlot?onCreateEvent:null}>
       { isStartOfMeet && selectedMeets.filter(e => e.created).map(selectedMeet=>{
-        return <p key={selectedMeet.name+selectedMeet.room}>{`${selectedMeet.name},Room: ${selectedMeet.room}: ${selectedMeet.starts}:00-${selectedMeet.ends}:00`}</p>
+        return <p key={selectedMeet.name+selectedMeet.room}>{`${selectedMeet.name}, Room: ${selectedMeet.room}: ${selectedMeet.starts}:00 - ${selectedMeet.ends}:00`}</p>
       })}
     </div>
 }
@@ -42,7 +42,7 @@ function Hours() {
                   {
                       [...Array(24).keys()].slice(1).map(e => {
                         return <div className='flex' key={e}>
-                                    <div>{`${e>9?e:'0'+e}:00`}</div>
+                                    <div className='blackCell'>{`${e>9?e:'0'+e}:00`}</div>
                                     <Line hour={e}/>
                         </div>
                       })

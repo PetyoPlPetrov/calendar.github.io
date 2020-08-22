@@ -16,8 +16,8 @@ function CalendarHeader() {
 
   return (
     <>
-      <h1>{`${selectedDay||currentDay} ${currentMonth} ${currentYear}`}</h1>
-      <h2> {currentWeekDay}</h2>
+      <h1 className='flex centered blackCell'>{`${selectedDay||currentDay} ${currentMonth} ${currentYear}`}</h1>
+      <h2 className='flex centered blackCell'> {currentWeekDay}</h2>
     </>
   );
 }

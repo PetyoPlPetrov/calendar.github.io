@@ -1,23 +1,25 @@
 :root {
-    --main-color: #cbe29c;
-    --secondary-color:#9bc740;
+    --main-color: #ebeff3;
+    --secondary-color:#9cb8d4;
     --selectedDay: gray;
-    --weekdays: black;
-    --currentDay: red;
+    --weekdays: #393f4b;
+    --currentDay: #e82c2c;
     --error: red;
   }
-
+#root{
+    background-color: #cfd8de;
+}
 .wrapper{
     display: grid;
-    border: solid black 2px;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem;
     background-color:var(--main-color);
+    padding: 1em;
 
 }
 
 .hours{
-    border: solid 2px;
+    border: solid var(--weekdays) 2px;
     min-width: 20em;
     background-color: white;
 
@@ -27,7 +29,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 1rem;
-    border: dashed black 2px;
+    border: dashed var(--weekdays) 2px;
     background-color: white;
 
 }
@@ -58,6 +60,10 @@
 .redCell{
     background-color: var( --error);
 }
+.blackCell{
+    color: var(--weekdays);
+
+}
 
 .selectedDay{
     background-color: var(--selectedDay);
@@ -76,6 +82,11 @@
 .controls{
     gap: 3px;
     margin: 3px;
+}
+.secondary{
+    background-color: #3678e5;
+    color: white
+
 }
 @media only screen and (min-width: 800px) {
     .wrapper {

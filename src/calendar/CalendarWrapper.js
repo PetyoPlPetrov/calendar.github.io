@@ -55,7 +55,7 @@ function CalendarWrapper() {
             <CalendarBar />
             <DetailedTime />
       </DateContext.Provider>
-      <a target="_blank" rel="noopener noreferrer" href='https://github.com/PetyoPlPetrov/calendar.github.io/blob/master/README.md'><h3>Read me</h3> </a>
+      <a className='blackCell' target="_blank" rel="noopener noreferrer" href='https://github.com/PetyoPlPetrov/calendar.github.io/blob/master/README.md'><h3>Github</h3> </a>
     </div>
   );
 }

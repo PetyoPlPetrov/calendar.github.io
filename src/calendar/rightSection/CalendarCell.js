@@ -22,7 +22,7 @@ function  Cell({day}){
   const hasSomeEvent = Array.isArray( events[currentDate])?events[currentDate].length>0: false
 
   return  <div 
-            className={`centered ${hasSomeEvent ? 'hasEvent':''} ${isCurrentDate?'currentDay': parseInt(selectedDay)===cell?'selectedDay': ''}`} 
+            className={`centered blackCell ${hasSomeEvent ? 'hasEvent':''} ${isCurrentDate?'currentDay': parseInt(selectedDay)===cell?'selectedDay': ''}`} 
             key={cell}
             onClick={()=>{
               setEventCreation(false)

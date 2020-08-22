@@ -67,10 +67,10 @@ const [isTsarevecFree, isArbanasiFree] = useMemo(()=>{
 },[ checkAvailability,selectedDate,starts,ends])
 
   return (
-      <div className='flex column newevent'>
+      <div className='flex column newevent blackCell'>
          New Event
          <div>Name<input value={form.name} onChange={onChange('name')}  ></input></div>
-         <div>Starts<input  value={Math.min(Math.max(starts,1),24)} type='number' onChange={onChange('starts')} ></input></div>
+         <div>Starts<input  value={Math.min(Math.max(starts,1),23)} type='number' onChange={onChange('starts')} ></input></div>
          <div>Ends
           <input value={Math.min(Math.max(ends,1),24)} type='number'  onChange={onChange('ends')}></input>
         </div>
@@ -82,9 +82,9 @@ const [isTsarevecFree, isArbanasiFree] = useMemo(()=>{
            
         </select>
          </div>
-         <div className=' controls'>
-            <button onClick={onCancelCreate}>Cancel</button>
-            <button onClick={onSave}>Save</button>
+         <div className='controls'>
+            <button className='blackCell' onClick={onCancelCreate}>Cancel</button>
+            <button className='secondary' onClick={onSave}>Save</button>
             {error && <div className='error'>Check the start/end time. Fill the room field.</div>}
          </div>
          </div> 

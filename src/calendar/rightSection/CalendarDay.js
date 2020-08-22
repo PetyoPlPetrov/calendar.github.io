@@ -34,8 +34,8 @@ function Controls(){
   },[date,setDate,setEventCreation]);
 
   return <div className='flex controls'>
-      <button onClick={onPrev}>Prev</button>
-      <button onClick={onNext}>Next</button>
+      <button className='blackCell' onClick={onPrev}>Prev</button>
+      <button className='blackCell' onClick={onNext}>Next</button>
   </div>
 }
 
