@@ -57,7 +57,16 @@ function NewEvent({event}) {
     return ({target:{value}})=>{
 
       error && setError(false)
-      setForm(state=>({...state,[field]:value}))}
+      setForm(state=>{
+        if(field ==='starts'){
+          return ({...state,[field]:Math.min(Math.max(value,1),23)})
+        }
+        if(field ==='ends'){
+          return ({...state,[field]:Math.min(Math.max(value,1),24)})
+        }
+
+        return ({...state,[field]:value})
+      })}
   },[ setForm, setError,error ]);
 
 const [isTsarevecFree, isArbanasiFree] = useMemo(()=>{
@@ -65,14 +74,14 @@ const [isTsarevecFree, isArbanasiFree] = useMemo(()=>{
   starts && ends && checkAvailability(selectedDate,'Arbanasi',starts,ends<starts? starts: ends)
 ]
 },[ checkAvailability,selectedDate,starts,ends])
-
-  return (
+console.log(form)
+return (
       <div className='flex column newevent blackCell'>
          New Event
          <div>Name<input value={form.name} onChange={onChange('name')}  ></input></div>
-         <div>Starts<input  value={Math.min(Math.max(starts,1),23)} type='number' onChange={onChange('starts')} ></input></div>
+         <div>Starts<input  value={starts} type='number' onChange={onChange('starts')} ></input></div>
          <div>Ends
-          <input value={Math.min(Math.max(ends,1),24)} type='number'  onChange={onChange('ends')}></input>
+          <input value={ends} type='number'  onChange={onChange('ends')}></input>
         </div>
          <div>Room
          <select name="room" onChange={onChange('room')} value={form.room}>
