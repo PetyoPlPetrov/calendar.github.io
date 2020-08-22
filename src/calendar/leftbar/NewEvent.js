@@ -13,20 +13,22 @@ function NewEvent({event}) {
   const checkAvailability = checkForFreeSlot(rooms);
   const [ error, setError] = useState(false)
   const selectedDate = getSelectedDay(date,selectedDay);
-
+  let starts = parseInt(form.starts);
+  let ends = parseInt(form.ends);
+  
   const onSave = useCallback(()=>{
 
-            if(parseInt(form.starts) >=parseInt(form.ends) || form.room ==='empty'){
+            if(starts >=ends || form.room ==='empty'){
               setError(true);
               return
             }
 
             const currentSelectedDay = getSelectedDay(date,selectedDay);
 
-            const hasFreeSlot = checkAvailability(currentSelectedDay,form.room, form.starts, form.ends-1);
+            const hasFreeSlot = checkAvailability(currentSelectedDay,form.room, starts, form.ends-1);
 
              if(hasFreeSlot){
-              let meet = {...form,starts: parseInt(form.starts), ends: parseInt(form.ends), room: form.room, created:true};
+              let meet = {...form,starts: starts, ends, room: form.room, created:true};
 
               events[currentSelectedDay].push(meet);
  
@@ -40,7 +42,7 @@ function NewEvent({event}) {
              }
 
             
-  },[date,events,setEvents,setEventCreation,selectedDay,form, checkAvailability, setRooms])
+  },[date,events,setEvents,setEventCreation,selectedDay,form, checkAvailability, setRooms,starts,ends])
   
   const onCancelCreate = useCallback(()=>{
               const currentSelectedDay = getSelectedDay(date,selectedDay);
@@ -59,18 +61,18 @@ function NewEvent({event}) {
   },[ setForm, setError,error ]);
 
 const [isTsarevecFree, isArbanasiFree] = useMemo(()=>{
-  return [checkAvailability(selectedDate,'Tsarevets',parseInt(form.starts),parseInt(form.ends)<parseInt(form.starts)? parseInt(form.starts): parseInt(form.ends)),
-  checkAvailability(selectedDate,'Arbanasi',parseInt(form.starts),parseInt(form.ends)<parseInt(form.starts)? parseInt(form.starts): parseInt(form.ends))
+  return [ starts && ends && checkAvailability(selectedDate,'Tsarevets',starts,ends<starts? starts: ends),
+  starts && ends && checkAvailability(selectedDate,'Arbanasi',starts,ends<starts? starts: ends)
 ]
-},[form, checkAvailability,selectedDate])
+},[ checkAvailability,selectedDate,starts,ends])
 
   return (
       <div className='flex column newevent'>
          New Event
          <div>Name<input value={form.name} onChange={onChange('name')}  ></input></div>
-         <div>Starts<input  value={form.starts} type='number' onChange={onChange('starts')} ></input></div>
+         <div>Starts<input  value={Math.max(starts,1)} type='number' onChange={onChange('starts')} ></input></div>
          <div>Ends
-          <input value={Math.min(form.ends,24)} type='number'  onChange={onChange('ends')}></input>
+          <input value={Math.min(ends,24)} type='number'  onChange={onChange('ends')}></input>
         </div>
          <div>Room
          <select name="room" onChange={onChange('room')} value={form.room}>
