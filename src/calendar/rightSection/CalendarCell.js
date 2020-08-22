@@ -12,7 +12,6 @@ function  Cell({day}){
   let currentDay = parseInt(moment().format('D'));
   let cell = day+1-firstDay;
 
-
   if(day<firstDay){//empty cells
     return <div key={day}></div>
   }
@@ -23,7 +22,7 @@ function  Cell({day}){
   const hasSomeEvent = Array.isArray( events[currentDate])?events[currentDate].length>0: false
 
   return  <div 
-            className={`centered ${hasSomeEvent ? 'hasEvent':''} ${isCurrentDate?'currentDay': selectedDay===cell?'selectedDay': ''}`} 
+            className={`centered ${hasSomeEvent ? 'hasEvent':''} ${isCurrentDate?'currentDay': parseInt(selectedDay)===cell?'selectedDay': ''}`} 
             key={cell}
             onClick={()=>{
               setEventCreation(false)

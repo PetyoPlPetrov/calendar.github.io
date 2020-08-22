@@ -1,6 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
-// import './App.css';
 
 import CalendarWrapper from './calendar/CalendarWrapper';
 
@@ -13,7 +11,6 @@ import CalendarWrapper from './calendar/CalendarWrapper';
   return (
     <div className="App">
       <header className="App-header flex centered">
-      {false &&  <img src={logo} className="App-logo" alt="logo" />}  
       <CalendarWrapper />
       </header>
     </div>
