@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent } from "@testing-library/react";
-import CalendarHeaders from "../leftSection/CalendarHeaders";
+import CalendarHeaders from "../leftSection/ScheduleHeader";
 import Weekdays from "../rightSection/Weekdays";
 import moment from "moment";
 import { rend } from "./utils";

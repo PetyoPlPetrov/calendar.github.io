@@ -4,7 +4,7 @@ import useStorage from "../utils/useStorage";
 import { getSelectedHours, checkForFreeSlot, fillRooms } from "../utils/";
 import getSelectedDay from "../utils/getSelectedDay";
 
-const Line = ({ hour }) => {
+const ScheduleHour = ({ hour }) => {
   const { date, setEventCreation } = useContext(DateContext);
   const [events, setEvents] = useStorage("Store.events", {});
   const [selectedDay] = useStorage("Store.selectedDay", "");
@@ -78,14 +78,15 @@ const Line = ({ hour }) => {
     </div>
   );
 };
-function Hours() {
+
+function ScheduleBody() {
   return (
     <div className="flex column hours">
       {[...Array(24).keys()].map((e) => {
         return (
           <div className="flex" key={e}>
             <div className="blackCell">{`${e > 9 ? e : "0" + e}:00`}</div>
-            <Line hour={e} />
+            <ScheduleHour hour={e} />
           </div>
         );
       })}
@@ -93,4 +94,4 @@ function Hours() {
   );
 }
 
-export default Hours;
+export default ScheduleBody;

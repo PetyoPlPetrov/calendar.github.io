@@ -38,6 +38,7 @@
   margin-left: 2px;
   border: 1px dashed var(--selectedDay);
   width: 100%;
+  line-height: 2px;
 }
 
 .weekdays {

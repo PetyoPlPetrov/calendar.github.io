@@ -6,7 +6,7 @@ import { DateContext } from "../CalendarWrapper";
 import useStorage from "../utils/useStorage";
 import getSelectedDay from "../utils/getSelectedDay";
 
-function DetailedTime() {
+function CalendarView() {
   const [selectedDay] = useStorage("Store.selectedDay", "");
   const { creatingEvent, date } = useContext(DateContext);
   const selectedDate = getSelectedDay(date, selectedDay);
@@ -23,4 +23,4 @@ function DetailedTime() {
   );
 }
 
-export default DetailedTime;
+export default CalendarView;

@@ -3,7 +3,7 @@ import { DateContext } from "../CalendarWrapper";
 import moment from "moment";
 import useStorage from "../utils/useStorage";
 
-function CalendarHeader() {
+function ScheduleHeader() {
   const [selectedDay] = useStorage("Store.selectedDay", "");
   const { date } = useContext(DateContext);
   const currentMonth = date.format("MMMM");
@@ -24,4 +24,4 @@ function CalendarHeader() {
   );
 }
 
-export default CalendarHeader;
+export default ScheduleHeader;

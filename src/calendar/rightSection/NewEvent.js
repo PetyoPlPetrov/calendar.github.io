@@ -167,12 +167,13 @@ function NewEvent({ event }) {
         <button className="primary" onClick={onSave}>
           Save
         </button>
-        {error && (
-          <div className="error">
-            Check the start/end time. Fill the room field.
-          </div>
-        )}
+        
       </div>
+      {error && (
+        <div className="error">
+          Check the start/end time. Fill the room field.
+        </div>
+      )}
     </div>
   );
 }

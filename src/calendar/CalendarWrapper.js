@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./styles/Common.css";
 import "./styles/Calendar.css";
-import CalendarBar from "./leftSection/CalendarBar";
-import DetailedTime from "./rightSection/DetailedTime";
+import ScheduleBar from "./leftSection/ScheduleBar";
+import CalendarView from "./rightSection/CalendarView";
 import moment from "moment";
 import useStorage from "./utils/useStorage";
 import { fillRooms, fetchData } from "./utils/";
@@ -55,8 +55,8 @@ function CalendarWrapper() {
       <DateContext.Provider
         value={{ date, setDate, creatingEvent, setEventCreation }}
       >
-        <CalendarBar />
-        <DetailedTime />
+        <ScheduleBar />
+        <CalendarView />
       </DateContext.Provider>
       <a
         className="blackCell"
