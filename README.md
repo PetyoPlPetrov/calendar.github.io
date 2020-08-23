@@ -18,12 +18,12 @@ It can be accessed directly in https://petyoplpetrov.github.io/calendar.github.i
 ```
     - project root
         - calendar
-            - mock data seed
             - left view with hours and selected date info
             - right view with calendar and event creation form
             - styles
             - utils
             - tests
+        - mock data seed
 
 ```
 
