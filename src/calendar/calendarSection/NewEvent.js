@@ -22,7 +22,7 @@ function NewEvent({ event }) {
   let ends = parseInt(form.ends);
 
   const onSave = useCallback(() => {
-    if (starts >= ends || form.room === "empty") {
+    if (form.room === "empty") {
       setError(true);
       return;
     }
@@ -89,17 +89,18 @@ function NewEvent({ event }) {
         error && setError(false);
         setForm((state) => {
           if (field === "starts") {
-            return { ...state, [field]: Math.min(Math.max(value, 0), 23) };
+            return { ...state, [field]: Math.min(Math.max(value, 0), 23) ,['ends']: Math.min(Math.max(value, parseInt(value)+1), 24)};
+
           }
           if (field === "ends") {
-            return { ...state, [field]: Math.min(Math.max(value, 1), 24) };
+            return { ...state, [field]: Math.min(Math.max(value, starts+1), 24) };
           }
 
           return { ...state, [field]: value };
         });
       };
     },
-    [setForm, setError, error]
+    [setForm, setError, error,starts]
   );
 
   const [isTsarevecFree, isArbanasiFree] = useMemo(() => {
@@ -171,7 +172,7 @@ function NewEvent({ event }) {
       </div>
       {error && (
         <div className="error">
-          Check the start/end time. Fill the room field.
+           Choose a room.
         </div>
       )}
     </div>
