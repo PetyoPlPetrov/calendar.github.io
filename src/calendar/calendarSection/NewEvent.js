@@ -175,10 +175,10 @@ function NewEvent({ event }) {
         </select>
       </div>
       <div className="flex controls down">
-        <button className="blackCell" onClick={onCancelCreate}>
+        <button className="blackCell button" onClick={onCancelCreate}>
           Cancel
         </button>
-        <button className="primary" onClick={onSave}>
+        <button className="primary button" onClick={onSave}>
           Save
         </button>
       </div>

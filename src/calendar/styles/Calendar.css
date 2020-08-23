@@ -102,6 +102,9 @@
 .down {
   margin-top: var(--gap);
 }
+.button{
+  border-radius: 12%;
+}
 @media only screen and (min-width: 800px) {
   .wrapper {
     width: 60%;

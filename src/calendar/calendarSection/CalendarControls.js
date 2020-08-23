@@ -19,10 +19,10 @@ function CalendarControls() {
 
   return (
     <div className="flex controls">
-      <button className="blackCell" onClick={onPrev}>
+      <button className="blackCell button" onClick={onPrev}>
         Prev
       </button>
-      <button className="blackCell" onClick={onNext}>
+      <button className="blackCell button" onClick={onNext}>
         Next
       </button>
     </div>
