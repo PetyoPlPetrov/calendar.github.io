@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7e5d1baa4bf522bd7921f862425c6f8f",
+    "revision": "9e684710551854553cf7081c49f57563",
     "url": "/calendar.github.io/index.html"
   },
   {
-    "revision": "c9f03d156dc28d3d292b",
-    "url": "/calendar.github.io/static/css/main.7cf4407b.chunk.css"
+    "revision": "3f71814538a862428055",
+    "url": "/calendar.github.io/static/css/main.c513e49c.chunk.css"
   },
   {
     "revision": "5c481ce15b854c514fe9",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/calendar.github.io/static/js/2.58e5d59c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c9f03d156dc28d3d292b",
-    "url": "/calendar.github.io/static/js/main.df3e6e10.chunk.js"
+    "revision": "3f71814538a862428055",
+    "url": "/calendar.github.io/static/js/main.bf0abcf7.chunk.js"
   },
   {
     "revision": "23ee8d3f6f39cefd4d7d",
