@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/calendar.github.io/static/css/main.9c800481.chunk.css",
-    "main.js": "/calendar.github.io/static/js/main.32512f4b.chunk.js",
-    "main.js.map": "/calendar.github.io/static/js/main.32512f4b.chunk.js.map",
+    "main.css": "/calendar.github.io/static/css/main.85544665.chunk.css",
+    "main.js": "/calendar.github.io/static/js/main.40099e6b.chunk.js",
+    "main.js.map": "/calendar.github.io/static/js/main.40099e6b.chunk.js.map",
     "runtime-main.js": "/calendar.github.io/static/js/runtime-main.4def58f3.js",
     "runtime-main.js.map": "/calendar.github.io/static/js/runtime-main.4def58f3.js.map",
     "static/js/2.bf75d08a.chunk.js": "/calendar.github.io/static/js/2.bf75d08a.chunk.js",
     "static/js/2.bf75d08a.chunk.js.map": "/calendar.github.io/static/js/2.bf75d08a.chunk.js.map",
     "index.html": "/calendar.github.io/index.html",
-    "precache-manifest.9f9629b48c4a2e0f2ebf545c06d37c95.js": "/calendar.github.io/precache-manifest.9f9629b48c4a2e0f2ebf545c06d37c95.js",
+    "precache-manifest.736bc01cafefd4287e5c383a8bd52548.js": "/calendar.github.io/precache-manifest.736bc01cafefd4287e5c383a8bd52548.js",
     "service-worker.js": "/calendar.github.io/service-worker.js",
-    "static/css/main.9c800481.chunk.css.map": "/calendar.github.io/static/css/main.9c800481.chunk.css.map",
+    "static/css/main.85544665.chunk.css.map": "/calendar.github.io/static/css/main.85544665.chunk.css.map",
     "static/js/2.bf75d08a.chunk.js.LICENSE.txt": "/calendar.github.io/static/js/2.bf75d08a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4def58f3.js",
     "static/js/2.bf75d08a.chunk.js",
-    "static/css/main.9c800481.chunk.css",
-    "static/js/main.32512f4b.chunk.js"
+    "static/css/main.85544665.chunk.css",
+    "static/js/main.40099e6b.chunk.js"
   ]
 }
