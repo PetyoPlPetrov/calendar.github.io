@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ScheduleBar from "./leftSection/ScheduleBar";
-import CalendarView from "./rightSection/CalendarView";
+import ScheduleBar from "./scheduleSection/ScheduleBar";
+import CalendarView from "./calendarSection/CalendarView";
 import moment from "moment";
 import useStorage from "./utils/useStorage";
 import { fillRooms, fetchData } from "./utils/";

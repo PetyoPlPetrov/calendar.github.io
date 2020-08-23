@@ -1,10 +1,10 @@
 import React from "react";
 import { fireEvent } from "@testing-library/react";
-import CalendarHeaders from "../leftSection/ScheduleHeader";
-import Weekdays from "../rightSection/Weekdays";
+import CalendarHeaders from "../scheduleSection/ScheduleHeader";
+import Weekdays from "../calendarSection/Weekdays";
 import moment from "moment";
 import { rend } from "./utils";
-import NewEvent from "../rightSection/NewEvent";
+import NewEvent from "../calendarSection/NewEvent";
 
 describe("Calendar", () => {
   describe("CalendarHeader", () => {
