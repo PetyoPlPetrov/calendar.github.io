@@ -88,7 +88,8 @@ function NewEvent({ event }) {
       return ({ target: { value } }) => {
         error && setError(false);
         setForm((state) => {
-          const futureStart = value === "" ? "" : Math.min(Math.max(value, ""), 23);
+          const futureStart =
+            value === "" ? "" : Math.min(Math.max(value, ""), 23);
           const futureEndsWhenStartChanged = Math.min(
             Math.max(value, value === "" ? "" : parseInt(value) + 1),
             24
@@ -100,7 +101,8 @@ function NewEvent({ event }) {
               ["ends"]: futureEndsWhenStartChanged,
             };
           }
-          const newEnds = value === "" ? "" : Math.min(Math.max(value, starts + 1), 24);
+          const newEnds =
+            value === "" ? "" : Math.min(Math.max(value, starts + 1), 24);
           if (field === "ends") {
             return { ...state, [field]: newEnds };
           }
@@ -145,6 +147,7 @@ function NewEvent({ event }) {
           data-testid="start"
           value={starts}
           onChange={onChange("starts")}
+          className={`${form.starts === "" ? "errorField" : ""}`}
         ></input>
       </div>
       <div>
@@ -153,6 +156,7 @@ function NewEvent({ event }) {
           data-testid="ends"
           value={ends}
           onChange={onChange("ends")}
+          className={`${form.ends === "" ? "errorField" : ""}`}
         ></input>
       </div>
       <div>
@@ -163,7 +167,9 @@ function NewEvent({ event }) {
           onChange={onChange("room")}
           value={form.room}
         >
-          <option value="empty">Select room</option>
+          <option value="empty">
+            {!isTsarevecFree && !isArbanasiFree ? "No room" : "Select room"}
+          </option>
           {isTsarevecFree && <option value="Tsarevets">Tsarevets</option>}
           {isArbanasiFree && <option value="Arbanasi">Arbanasi</option>}
         </select>

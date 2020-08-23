@@ -74,6 +74,9 @@
 .error {
   color: var(--error);
 }
+.errorField {
+  border-color: var(--error);
+}
 .controls {
   gap: 3px;
   margin: 5px;
