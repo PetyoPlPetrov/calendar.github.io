@@ -1,6 +1,5 @@
-import React, { useContext, useCallback} from 'react';
-import moment from 'moment'
-import {DateContext} from '../CalendarWrapper'
+import React, { useContext} from 'react';
+import { DateContext } from '../CalendarWrapper'
 import Cell from './CalendarCell'
 import CalendarControls from './CalendarControls'
 

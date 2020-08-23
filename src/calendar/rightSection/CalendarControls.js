@@ -1,8 +1,6 @@
 import React, { useContext, useCallback} from 'react';
 import moment from 'moment'
 import {DateContext} from '../CalendarWrapper'
-import Cell from './CalendarCell'
-
 
 function CalendarControls(){
   const {date, setDate,setEventCreation} = useContext(DateContext);

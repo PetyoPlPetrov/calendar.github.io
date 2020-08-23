@@ -7,7 +7,7 @@ import {DateContext} from '../CalendarWrapper'
 function NewEvent({event}) {
   const [selectedDay]= useStorage('Store.selectedDay','');
   const {date,setEventCreation} = useContext(DateContext);
-  const [events, setEvents]= useStorage('Store.events');
+  const [events, setEvents]= useStorage('Store.events',{});
   const [form, setForm] = useState({starts:event.starts,ends:Math.min(event.starts+1,24),room:'empty',name:'Event'});
   const [rooms,setRooms]= useStorage('Store.roomAvailability',{});
   const checkAvailability = checkForFreeSlot(rooms);
@@ -29,7 +29,9 @@ function NewEvent({event}) {
 
              if(hasFreeSlot){
               let meet = {...form,starts: starts, ends, room: form.room, created:true};
-
+              if(!events[currentSelectedDay]){// TODO mock useStorage to avoid that if Check per testing purposes
+                events[currentSelectedDay]=[]
+              }
               events[currentSelectedDay].push(meet);
  
               let allEventsPerDay = events[currentSelectedDay].filter(e => e.ends!== null);
@@ -74,17 +76,17 @@ const [isTsarevecFree, isArbanasiFree] = useMemo(()=>{
   starts && ends && checkAvailability(selectedDate,'Arbanasi',starts,ends<starts? starts: ends)
 ]
 },[ checkAvailability,selectedDate,starts,ends])
-console.log(form)
+
 return (
       <div className='flex column newevent blackCell'>
          New Event
          <div>Name<input value={form.name} onChange={onChange('name')}  ></input></div>
-         <div>Starts<input test-id='start'  value={starts} type='number' onChange={onChange('starts')} ></input></div>
+         <div>Starts<input data-testid='start'  value={starts} type='number' onChange={onChange('starts')} ></input></div>
          <div>Ends
-          <input test-id='end' value={ends} type='number'  onChange={onChange('ends')}></input>
+          <input data-testid='ends' value={ends} type='number'  onChange={onChange('ends')}></input>
         </div>
          <div>Room
-         <select name="room" onChange={onChange('room')} value={form.room}>
+         <select  data-testid='room' name="room" onChange={onChange('room')} value={form.room}>
          <option value="empty">Select room</option>
             {isTsarevecFree && <option value="Tsarevets">Tsarevets</option>}
            { isArbanasiFree && <option value="Arbanasi">Arbanasi</option>}

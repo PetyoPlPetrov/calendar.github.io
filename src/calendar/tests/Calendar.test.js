@@ -6,6 +6,7 @@ import moment from 'moment';
 import {rend} from './utils';
 import NewEvent from '../rightSection/NewEvent';
 
+
 describe('Calendar', ()=>{
 
   describe('CalendarHeader', ()=>{
@@ -26,12 +27,16 @@ describe('Calendar', ()=>{
     })
   })
 
-  // describe('New Event',()=>{
-  //     it('Should create a new event', ()=>{
-  //       const { getByText, debug, getByTestId } = rend(<NewEvent event={{starts:9, ends:null, created:false, room:null}} />);
-  //       fireEvent.onChange(fireEvent('ends'),{target:{value: 10}});
-
-  //     })
-  // })
+  describe('Creating a new event without errors',()=>{
+      it('Should create a new event', ()=>{
+        const setEventCreation = jest.fn()
+        const { getByText, debug, getByTestId,queryByText } = rend(<NewEvent event={{starts:9, ends:null, created:false, room:null}} />,{contextProps: {setEventCreation}});
+        fireEvent.change(getByTestId('ends'),{target:{value: 10}});
+        fireEvent.change(getByTestId('room'),{target:{value: 'Tsarevets'}});
+        fireEvent.click(getByText('Save'))
+        expect(queryByText('Check the start/end time. Fill the room field.')).not.toBeInTheDocument()
+        expect(setEventCreation).toHaveBeenCalledWith(false)
+      })
+  })
 
 })
