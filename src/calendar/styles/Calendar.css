@@ -83,7 +83,7 @@
   background-color: #3678e5;
   color: white;
 }
-.remove::after {
+.remove::before {
   content: "x";
   position: relative;
   top: -7px;

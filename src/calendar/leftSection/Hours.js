@@ -63,14 +63,15 @@ const Line = ({ hour }) => {
           .map((selectedMeet) => {
             return (
               <div key={selectedMeet.name + selectedMeet.room} className="flex">
+              <p
+              onClick={(e) => {
+                e.stopPropagation();
+                onEventRemove(selectedMeet);
+              }}
+              className={hasScheduledMeet ? "remove" : ""}
+            ></p>
                 <p>{`${selectedMeet.name}, Room: ${selectedMeet.room}: ${selectedMeet.starts}:00 - ${selectedMeet.ends}:00`}</p>
-                <p
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onEventRemove(selectedMeet);
-                  }}
-                  className={hasScheduledMeet ? "remove" : ""}
-                ></p>
+               
               </div>
             );
           })}
