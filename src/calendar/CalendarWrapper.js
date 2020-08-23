@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./styles/Common.css";
-import "./styles/Calendar.css";
 import ScheduleBar from "./leftSection/ScheduleBar";
 import CalendarView from "./rightSection/CalendarView";
 import moment from "moment";

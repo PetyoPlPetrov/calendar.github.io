@@ -1,4 +1,5 @@
 import React from "react";
+import "./calendar/styles/index.css";
 import CalendarWrapper from "./calendar/CalendarWrapper";
 
 function App() {
