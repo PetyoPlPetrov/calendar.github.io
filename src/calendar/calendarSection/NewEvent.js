@@ -18,8 +18,8 @@ function NewEvent({ event }) {
   const checkAvailability = checkForFreeSlot(rooms);
   const [error, setError] = useState(false);
   const selectedDate = getSelectedDay(date, selectedDay);
-  let starts = parseInt(form.starts);
-  let ends = parseInt(form.ends);
+  let starts = form.starts === "" ? "" : parseInt(form.starts);
+  let ends = form.ends === "" ? "" : parseInt(form.ends);
 
   const onSave = useCallback(() => {
     if (form.room === "empty") {
@@ -88,19 +88,28 @@ function NewEvent({ event }) {
       return ({ target: { value } }) => {
         error && setError(false);
         setForm((state) => {
+          const futureStart = value === "" ? "" : Math.min(Math.max(value, ""), 23);
+          const futureEndsWhenStartChanged = Math.min(
+            Math.max(value, value === "" ? "" : parseInt(value) + 1),
+            24
+          );
           if (field === "starts") {
-            return { ...state, [field]: Math.min(Math.max(value, 0), 23) ,['ends']: Math.min(Math.max(value, parseInt(value)+1), 24)};
-
+            return {
+              ...state,
+              [field]: futureStart,
+              ["ends"]: futureEndsWhenStartChanged,
+            };
           }
+          const newEnds = value === "" ? "" : Math.min(Math.max(value, starts + 1), 24);
           if (field === "ends") {
-            return { ...state, [field]: Math.min(Math.max(value, starts+1), 24) };
+            return { ...state, [field]: newEnds };
           }
 
           return { ...state, [field]: value };
         });
       };
     },
-    [setForm, setError, error,starts]
+    [setForm, setError, error, starts]
   );
 
   const [isTsarevecFree, isArbanasiFree] = useMemo(() => {
@@ -126,7 +135,7 @@ function NewEvent({ event }) {
 
   return (
     <div className="flex column down blackCell">
-      <h3 className='up'>New Event</h3>
+      <h3 className="up">New Event</h3>
       <div>
         Name<input value={form.name} onChange={onChange("name")}></input>
       </div>
@@ -135,7 +144,6 @@ function NewEvent({ event }) {
         <input
           data-testid="start"
           value={starts}
-          type="number"
           onChange={onChange("starts")}
         ></input>
       </div>
@@ -144,7 +152,6 @@ function NewEvent({ event }) {
         <input
           data-testid="ends"
           value={ends}
-          type="number"
           onChange={onChange("ends")}
         ></input>
       </div>
@@ -168,13 +175,8 @@ function NewEvent({ event }) {
         <button className="primary" onClick={onSave}>
           Save
         </button>
-        
       </div>
-      {error && (
-        <div className="error">
-           Choose a room.
-        </div>
-      )}
+      {error && <div className="error">Choose a room.</div>}
     </div>
   );
 }

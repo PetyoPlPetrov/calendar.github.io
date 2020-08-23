@@ -35,7 +35,6 @@ export default (key, empty, store = "session") => {
       const { key: id, newValue, storageArea } = payload;
 
       if (storageArea === storage && id === key && newValue !== undefined) {
-
         setValue(newValue);
       }
     };

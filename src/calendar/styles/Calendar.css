@@ -78,7 +78,6 @@
   gap: 3px;
   margin: 5px;
   border-radius: 0.3rem;
-
 }
 .primary {
   background-color: var(--primaryButtonColor);
@@ -93,13 +92,12 @@
   border: 1px solid;
   border-radius: 28%;
   margin-right: 3px;
-
 }
-.up{
-  margin-bottom:var(--gap);
+.up {
+  margin-bottom: var(--gap);
 }
-.down{
-  margin-top:var(--gap);
+.down {
+  margin-top: var(--gap);
 }
 @media only screen and (min-width: 800px) {
   .wrapper {
