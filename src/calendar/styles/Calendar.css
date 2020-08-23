@@ -38,6 +38,7 @@
     margin-left: 2px;;
     border: 1px dashed var(--selectedDay);
     width: 100%; 
+    position: relative;
 }
 
 
@@ -86,6 +87,16 @@
 .secondary{
     background-color: #3678e5;
     color: white
+
+}
+.remove::after{
+    content: "x";
+    position: relative;
+    top: -7px;
+    color:var(--currentDay);
+    left: 1px;
+    border: 1px solid;
+    border-radius: 28%;
 
 }
 @media only screen and (min-width: 800px) {

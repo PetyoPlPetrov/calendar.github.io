@@ -27,7 +27,7 @@ export function range(size, startAt = 0) {
 export const getSelectedHours = (eventsPerDay)=> {   
   let scheduledHours=[];
     eventsPerDay.forEach(element => {
-      if(element.ends&&element.starts){
+      if(element.ends&&(element.starts|| element.starts===0)){
         let rangeHours = range(element.ends- element.starts, element.starts);
         scheduledHours.push(...rangeHours)
       } 

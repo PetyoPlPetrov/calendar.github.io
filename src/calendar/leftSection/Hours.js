@@ -1,7 +1,7 @@
 import React, {useContext, useCallback} from 'react';
 import {DateContext} from '../CalendarWrapper'
 import useStorage from '../utils/useStorage';
-import { getSelectedHours,checkForFreeSlot } from '../utils/';
+import { getSelectedHours,checkForFreeSlot,fillRooms } from '../utils/';
 import getSelectedDay from '../utils/getSelectedDay';
 
 const Line = ({ hour })=>{
@@ -10,7 +10,7 @@ const Line = ({ hour })=>{
   const [selectedDay]=useStorage('Store.selectedDay','');
   const selectedDate = getSelectedDay(date,selectedDay);
   const eventsPerDay = (events[selectedDate]||[])
-  const [rooms]= useStorage('Store.roomAvailability',{});
+  const [rooms, setRooms]= useStorage('Store.roomAvailability',{});
 
   const scheduledHours = getSelectedHours(eventsPerDay);
   const hasScheduledMeet = scheduledHours.includes(hour);
@@ -28,11 +28,25 @@ const Line = ({ hour })=>{
       setEvents(events)
   },[setEventCreation,events,selectedDate,setEvents, hour]);
 
+  const onEventRemove = useCallback((meet)=>{
+    let filteredEventsPerDay = events[selectedDate].filter(e => !(e.starts=== meet.starts && e.ends===meet.ends&& e.room ===meet.room))
+    events[selectedDate]= filteredEventsPerDay;
+    setEvents(events);
+    setRooms(fillRooms(events))
+
+  },[selectedDate,setEvents,events, setRooms])
+
   return <div
-        className={`line ${hasScheduledMeet && 'hasScheduledMeet'}`}
+        className={`line ${hasScheduledMeet ? 'hasScheduledMeet':''}`}
         onClick={hasFreeSlot?onCreateEvent:null}>
       { isStartOfMeet && selectedMeets.filter(e => e.created).map(selectedMeet=>{
-        return <p key={selectedMeet.name+selectedMeet.room}>{`${selectedMeet.name}, Room: ${selectedMeet.room}: ${selectedMeet.starts}:00 - ${selectedMeet.ends}:00`}</p>
+        return <div key={selectedMeet.name+selectedMeet.room} className='flex'>
+        <p  >{`${selectedMeet.name}, Room: ${selectedMeet.room}: ${selectedMeet.starts}:00 - ${selectedMeet.ends}:00`}</p> 
+        <p onClick={(e)=>{
+          e.stopPropagation()
+          onEventRemove(selectedMeet)
+        }} className={hasScheduledMeet?'remove':''}></p>
+        </div>
       })}
     </div>
 }
@@ -40,7 +54,7 @@ function Hours() {
   return (
           <div className='flex column hours'>
                   {
-                      [...Array(24).keys()].slice(1).map(e => {
+                      [...Array(24).keys()].map(e => {
                         return <div className='flex' key={e}>
                                     <div className='blackCell'>{`${e>9?e:'0'+e}:00`}</div>
                                     <Line hour={e}/>

@@ -61,7 +61,7 @@ function NewEvent({event}) {
       error && setError(false)
       setForm(state=>{
         if(field ==='starts'){
-          return ({...state,[field]:Math.min(Math.max(value,1),23)})
+          return ({...state,[field]:Math.min(Math.max(value,0),23)})
         }
         if(field ==='ends'){
           return ({...state,[field]:Math.min(Math.max(value,1),24)})
@@ -72,8 +72,8 @@ function NewEvent({event}) {
   },[ setForm, setError,error ]);
 
 const [isTsarevecFree, isArbanasiFree] = useMemo(()=>{
-  return [ starts && ends && checkAvailability(selectedDate,'Tsarevets',starts,ends<starts? starts: ends),
-  starts && ends && checkAvailability(selectedDate,'Arbanasi',starts,ends<starts? starts: ends)
+  return [ (starts|| starts===0) && ends && checkAvailability(selectedDate,'Tsarevets',starts,ends<starts? starts: ends),
+  (starts|| starts===0) && ends && checkAvailability(selectedDate,'Arbanasi',starts,ends<starts? starts: ends)
 ]
 },[ checkAvailability,selectedDate,starts,ends])
 
