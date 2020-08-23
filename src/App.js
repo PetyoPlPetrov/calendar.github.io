@@ -1,12 +1,11 @@
-import React from 'react';
-import CalendarWrapper from './calendar/CalendarWrapper';
+import React from "react";
+import CalendarWrapper from "./calendar/CalendarWrapper";
 
- function App() {
-
+function App() {
   return (
     <div className="App">
       <header className="App-header flex centered">
-      <CalendarWrapper />
+        <CalendarWrapper />
       </header>
     </div>
   );

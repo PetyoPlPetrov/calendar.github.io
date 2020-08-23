@@ -1,116 +1,109 @@
 :root {
-    --main-color: #ebeff3;
-    --secondary-color:#9cb8d4;
-    --selectedDay: gray;
-    --weekdays: #393f4b;
-    --currentDay: #e82c2c;
-    --error: red;
-  }
-#root{
-    background-color: #cfd8de;
+  --main-color: #ebeff3;
+  --secondary-color: #9cb8d4;
+  --selectedDay: gray;
+  --weekdays: #393f4b;
+  --currentDay: #e82c2c;
+  --error: red;
 }
-.wrapper{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
-    background-color:var(--main-color);
-    padding: 1em;
-
+#root {
+  background-color: #cfd8de;
 }
-
-.hours{
-    border: solid var(--weekdays) 2px;
-    min-width: 20em;
-    background-color: white;
-
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  background-color: var(--main-color);
+  padding: 1em;
 }
 
-.days{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 1rem;
-    border: dashed var(--weekdays) 2px;
-    background-color: white;
-
+.hours {
+  border: solid var(--weekdays) 2px;
+  min-width: 20em;
+  background-color: white;
 }
 
-.line{
-    margin-left: 2px;;
-    border: 1px dashed var(--selectedDay);
-    width: 100%; 
-    position: relative;
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 1rem;
+  border: dashed var(--weekdays) 2px;
+  background-color: white;
 }
 
-
-.weekdays{
-    display: flex;
-    justify-content: space-around;
-    background-color: var(--weekdays);
-    color: white;
+.line {
+  margin-left: 2px;
+  border: 1px dashed var(--selectedDay);
+  width: 100%;
+  position: relative;
 }
 
-.hasEvent::after{
-    content: "*";
+.weekdays {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--weekdays);
+  color: white;
 }
 
-.currentDay{
-    background-color: var(--currentDay);
-    border-radius: 50%;
+.hasEvent::after {
+  content: "*";
 }
 
-.redCell{
-    background-color: var( --error);
-}
-.blackCell{
-    color: var(--weekdays);
-
+.currentDay {
+  background-color: var(--currentDay);
+  border-radius: 50%;
 }
 
-.selectedDay{
-    background-color: var(--selectedDay);
+.redCell {
+  background-color: var(--error);
+}
+.blackCell {
+  color: var(--weekdays);
 }
 
-.hasScheduledMeet{
-    background-color: var( --secondary-color);
-    border-bottom: 0px;
+.selectedDay {
+  background-color: var(--selectedDay);
 }
-.newevent{
-    margin-top: 1em;
-}
-.error{
-   color: var( --error);
-}
-.controls{
-    gap: 3px;
-    margin: 3px;
-}
-.secondary{
-    background-color: #3678e5;
-    color: white
 
+.hasScheduledMeet {
+  background-color: var(--secondary-color);
+  border-bottom: 0px;
 }
-.remove::after{
-    content: "x";
-    position: relative;
-    top: -7px;
-    color:var(--currentDay);
-    left: 1px;
-    border: 1px solid;
-    border-radius: 28%;
-
+.newevent {
+  margin-top: 1em;
+}
+.error {
+  color: var(--error);
+}
+.controls {
+  gap: 3px;
+  margin: 3px;
+}
+.secondary {
+  background-color: #3678e5;
+  color: white;
+}
+.remove::after {
+  content: "x";
+  position: relative;
+  top: -7px;
+  color: var(--currentDay);
+  left: 1px;
+  border: 1px solid;
+  border-radius: 28%;
 }
 @media only screen and (min-width: 800px) {
-    .wrapper {
-      width: 60%;
-    }
+  .wrapper {
+    width: 60%;
+  }
 }
 
-  @media only screen and (max-width: 400px) {
-    .wrapper {
-      display: flex;
-      flex-direction: column-reverse;
-    }
-    a{
-        display: none;
-    }
+@media only screen and (max-width: 400px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column-reverse;
   }
+  a {
+    display: none;
+  }
+}

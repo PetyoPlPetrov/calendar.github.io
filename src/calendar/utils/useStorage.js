@@ -1,50 +1,60 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from "react";
 
 class StorageChangedEvent extends CustomEvent {
-
-	constructor(payload) {
-		super(StorageChangedEvent.onStorageChange, { detail: payload })
-	}
+  constructor(payload) {
+    super(StorageChangedEvent.onStorageChange, { detail: payload });
+  }
 }
 
-export default (key, empty, store = 'session') => {
-	const storage = window[store + 'Storage']
-	const [ value, setValue ] = useState(() => storage.getItem(key) ? JSON.parse(storage.getItem(key)) : empty)
-  
-    
-	const setState = useCallback((state) => {
-        //console.log('setstate', state)
-        const newValue = typeof(state) === 'function' ? state(value) : state
-		storage.setItem(key, JSON.stringify(newValue))
-		window.dispatchEvent(new StorageChangedEvent({ key, newValue, storageArea: storage }))
-    }, [key, value, storage]);
-    
-    useEffect(()=>{
-        if(! storage.getItem(key)){
-            //console.log('storage.getItem(key)')
-            empty &&setState(empty)//setting the default value
+export default (key, empty, store = "session") => {
+  const storage = window[store + "Storage"];
+  const [value, setValue] = useState(() =>
+    storage.getItem(key) ? JSON.parse(storage.getItem(key)) : empty
+  );
 
-        }
-    },[empty,key,storage]);//eslint-disable-line
+  const setState = useCallback(
+    (state) => {
+      //console.log('setstate', state)
+      const newValue = typeof state === "function" ? state(value) : state;
+      storage.setItem(key, JSON.stringify(newValue));
+      window.dispatchEvent(
+        new StorageChangedEvent({ key, newValue, storageArea: storage })
+      );
+    },
+    [key, value, storage]
+  );
 
-	useEffect(() => {
-		const onStorageChange = (event) => {
-			const payload = event.detail || event
-			const { key: id, newValue, storageArea } = payload
+  useEffect(() => {
+    if (!storage.getItem(key)) {
+      //console.log('storage.getItem(key)')
+      empty && setState(empty); //setting the default value
+    }
+  }, [empty, key, storage]); //eslint-disable-line
 
-			if (storageArea === storage && id === key&&newValue!== undefined) {
-              //  console.log(newValue,key)
+  useEffect(() => {
+    const onStorageChange = (event) => {
+      const payload = event.detail || event;
+      const { key: id, newValue, storageArea } = payload;
 
-				setValue(newValue)
-			}
-		}
+      if (storageArea === storage && id === key && newValue !== undefined) {
+        //  console.log(newValue,key)
 
-		window.addEventListener(StorageChangedEvent.onStorageChange, onStorageChange)
+        setValue(newValue);
+      }
+    };
 
-		return () => {
-			window.removeEventListener(StorageChangedEvent.onStorageChange, onStorageChange)
-		}
-	}, [key, storage])
+    window.addEventListener(
+      StorageChangedEvent.onStorageChange,
+      onStorageChange
+    );
 
-	return [value, setState]
-}
+    return () => {
+      window.removeEventListener(
+        StorageChangedEvent.onStorageChange,
+        onStorageChange
+      );
+    };
+  }, [key, storage]);
+
+  return [value, setState];
+};

@@ -1,14 +1,13 @@
-
-.flex{
-    display: flex;
+.flex {
+  display: flex;
 }
 
-.column{
-    flex-direction: column;
+.column {
+  flex-direction: column;
 }
 
-.centered{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
