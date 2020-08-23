@@ -52,7 +52,7 @@ export default {
     },
     {
       start: "2020-06-03T10:00:00.000Z",
-      end: "2020-06-03T10:30:00.000Z",
+      end: "2020-06-03T11:00:00.000Z",
       name: "Morning Coffee Meeting",
       meetingRoom: "Arbanasi",
       participants: [],

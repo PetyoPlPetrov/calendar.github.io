@@ -1,4 +1,4 @@
-import data from "../eventsSeed/seed";
+import data from "../../eventsSeed/seed";
 
 export const fillRooms = (events) => {
   const rooms = {};
