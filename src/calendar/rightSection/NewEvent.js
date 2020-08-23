@@ -79,9 +79,9 @@ return (
       <div className='flex column newevent blackCell'>
          New Event
          <div>Name<input value={form.name} onChange={onChange('name')}  ></input></div>
-         <div>Starts<input  value={starts} type='number' onChange={onChange('starts')} ></input></div>
+         <div>Starts<input test-id='start'  value={starts} type='number' onChange={onChange('starts')} ></input></div>
          <div>Ends
-          <input value={ends} type='number'  onChange={onChange('ends')}></input>
+          <input test-id='end' value={ends} type='number'  onChange={onChange('ends')}></input>
         </div>
          <div>Room
          <select name="room" onChange={onChange('room')} value={form.room}>

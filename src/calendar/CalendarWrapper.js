@@ -24,28 +24,31 @@ function CalendarWrapper() {
        if(Object.keys(events).length!==0){
          return
        }
-       response.meetings.forEach(meet => {
-          let meetDate = moment(meet.start);
+    
+       const updatedEvents = response.meetings.reduce((acc, curr)=>{
+          let meetDate = moment(curr.start);
           let meetDateLabel = meetDate.format('D')+meetDate.format("MMMM")+meetDate.format('Y')
 
           let event = {
-            starts:parseInt(meet.start.substr(meet.start.indexOf('T')+1,5)),
-            ends:parseInt(meet.end.substr(meet.start.indexOf('T')+1,5)),
-            name: meet.name,
-            room:meet.meetingRoom,
+            starts:parseInt(curr.start.substr(curr.start.indexOf('T')+1,5)),
+            ends:parseInt(curr.end.substr(curr.start.indexOf('T')+1,5)),
+            name: curr.name,
+            room:curr.meetingRoom,
             created:true
           }
-          if(Array.isArray(events[meetDateLabel])){
-            events[meetDateLabel].push(event)
+          
+          if(Array.isArray(acc[meetDateLabel])){
+            acc[meetDateLabel].push(event)
           }else{
-            events[meetDateLabel]=[];
-            events[meetDateLabel].push(event)
+            acc[meetDateLabel]=[];
+            acc[meetDateLabel].push(event)
 
           }
-        });
-      
-        setEvents(events)
-        setRooms(fillRooms(events))
+          return acc
+        },{})
+ 
+        setEvents(updatedEvents)
+        setRooms(fillRooms(updatedEvents))
     })
   },[events, setEvents, setRooms])
 

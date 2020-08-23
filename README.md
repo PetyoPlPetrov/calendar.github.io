@@ -6,7 +6,7 @@ This repository will present a calendar/event schedule application. The boilerpl
 
 1. Clone the repository on master branch(it is the default one)
 
-   - the library source code is located into `src` folder
+   - the library source code is located into `calendar/src` folder
 
 1. To **install dependencies** execute in the terminal `npm install`
 
