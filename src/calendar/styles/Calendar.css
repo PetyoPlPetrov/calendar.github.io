@@ -9,7 +9,6 @@
   --primaryButtonColor: #3678e5;
 }
 #root {
-  font-family: Segoe UI,sans-serif;
   background-color: #cfd8de;
 }
 .wrapper {
@@ -38,7 +37,6 @@
   margin-left: 2px;
   border: 1px dashed var(--selectedDay);
   width: 100%;
-  line-height: 2px;
 }
 
 .weekdays {
