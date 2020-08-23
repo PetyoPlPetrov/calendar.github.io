@@ -124,8 +124,8 @@ function NewEvent({ event }) {
   }, [checkAvailability, selectedDate, starts, ends]);
 
   return (
-    <div className="flex column newevent blackCell">
-      New Event
+    <div className="flex column down blackCell">
+      <h3 className='up'>New Event</h3>
       <div>
         Name<input value={form.name} onChange={onChange("name")}></input>
       </div>
@@ -160,7 +160,7 @@ function NewEvent({ event }) {
           {isArbanasiFree && <option value="Arbanasi">Arbanasi</option>}
         </select>
       </div>
-      <div className="controls">
+      <div className="flex controls down">
         <button className="blackCell" onClick={onCancelCreate}>
           Cancel
         </button>

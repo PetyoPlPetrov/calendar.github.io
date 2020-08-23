@@ -5,8 +5,11 @@
   --weekdays: #393f4b;
   --currentDay: #e82c2c;
   --error: red;
+  --gap: 0.5em;
+  --primaryButtonColor: #3678e5;
 }
 #root {
+  font-family: Segoe UI,sans-serif;
   background-color: #cfd8de;
 }
 .wrapper {
@@ -68,18 +71,18 @@
   background-color: var(--primary-color);
   border-bottom: 0px;
 }
-.newevent {
-  margin-top: 1em;
-}
+
 .error {
   color: var(--error);
 }
 .controls {
   gap: 3px;
-  margin: 3px;
+  margin: 5px;
+  border-radius: 0.3rem;
+
 }
 .primary {
-  background-color: #3678e5;
+  background-color: var(--primaryButtonColor);
   color: white;
 }
 .remove::before {
@@ -92,6 +95,12 @@
   border-radius: 28%;
   margin-right: 3px;
 
+}
+.up{
+  margin-bottom:var(--gap);
+}
+.down{
+  margin-top:var(--gap);
 }
 @media only screen and (min-width: 800px) {
   .wrapper {

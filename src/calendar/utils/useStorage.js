@@ -14,7 +14,6 @@ export default (key, empty, store = "session") => {
 
   const setState = useCallback(
     (state) => {
-      //console.log('setstate', state)
       const newValue = typeof state === "function" ? state(value) : state;
       storage.setItem(key, JSON.stringify(newValue));
       window.dispatchEvent(
@@ -26,7 +25,6 @@ export default (key, empty, store = "session") => {
 
   useEffect(() => {
     if (!storage.getItem(key)) {
-      //console.log('storage.getItem(key)')
       empty && setState(empty); //setting the default value
     }
   }, [empty, key, storage]); //eslint-disable-line
@@ -37,7 +35,6 @@ export default (key, empty, store = "session") => {
       const { key: id, newValue, storageArea } = payload;
 
       if (storageArea === storage && id === key && newValue !== undefined) {
-        //  console.log(newValue,key)
 
         setValue(newValue);
       }
