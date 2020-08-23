@@ -40,12 +40,14 @@ const Line = ({ hour })=>{
         className={`line ${hasScheduledMeet ? 'hasScheduledMeet':''}`}
         onClick={hasFreeSlot?onCreateEvent:null}>
       { isStartOfMeet && selectedMeets.filter(e => e.created).map(selectedMeet=>{
+
         return <div key={selectedMeet.name+selectedMeet.room} className='flex'>
-        <p  >{`${selectedMeet.name}, Room: ${selectedMeet.room}: ${selectedMeet.starts}:00 - ${selectedMeet.ends}:00`}</p> 
-        <p onClick={(e)=>{
-          e.stopPropagation()
-          onEventRemove(selectedMeet)
-        }} className={hasScheduledMeet?'remove':''}></p>
+          <p>{`${selectedMeet.name}, Room: ${selectedMeet.room}: ${selectedMeet.starts}:00 - ${selectedMeet.ends}:00`}</p> 
+          <p onClick={(e)=>{
+            e.stopPropagation()
+            onEventRemove(selectedMeet)
+          }} className={hasScheduledMeet?'remove':''}>
+          </p>
         </div>
       })}
     </div>
