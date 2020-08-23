@@ -19,8 +19,8 @@ It can be accessed directly in https://petyoplpetrov.github.io/calendar.github.i
     - project root
         - calendar
             - mock data seed
-            - left view with hours
-            - right view with calendar and event creation
+            - left view with hours and selected date info
+            - right view with calendar and event creation form
             - styles
             - utils
             - tests
@@ -37,13 +37,12 @@ It can be accessed directly in https://petyoplpetrov.github.io/calendar.github.i
 
 1. The application works with whole hours - every meet can starts/ends on 8:00, 9:00 etc... It cannot currently use part-time as 09:15
 2. There is no proper error messages and warnings for the event creation.
-3. The event starts/ends are numeric fields - with min - max value 0 - 24. You better use the scroll to set the values.
-4. When day or month are changed, the event creation form is reset and closed. One must start over.
-5. There is no prompt dialog before removing the event
+3. When day or month are changed, the event creation form is reset and closed. One must start over.
+4. There is no prompt dialog before removing the event.
 
 ## Interesting facts
 
-Chromium just landed its flexbox gap property, so decided to use it. The plain css also has variables, we dont need preprocessor for this case. Look at /calendar/styles/Calendar.css. All the event schedule data is saved in the sesion storage.
+Chromium just landed its flexbox gap property, so decided to use it. All the event schedule data is saved in the sesion storage.
 The session storage is used to store the selection, so you may refresh the page.
 
 ## Authors

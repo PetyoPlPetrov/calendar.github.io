@@ -45,7 +45,7 @@ function NewEvent({ event }) {
         created: true,
       };
       if (!events[currentSelectedDay]) {
-        // TODO mock useStorage to avoid that if Check per testing purposes
+        // TODO mock useStorage to avoid that 'if' per testing purposes
         events[currentSelectedDay] = [];
       }
       events[currentSelectedDay].push(meet);
@@ -164,7 +164,7 @@ function NewEvent({ event }) {
         <button className="blackCell" onClick={onCancelCreate}>
           Cancel
         </button>
-        <button className="secondary" onClick={onSave}>
+        <button className="primary" onClick={onSave}>
           Save
         </button>
         {error && (

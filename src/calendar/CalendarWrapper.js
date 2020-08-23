@@ -64,7 +64,7 @@ function CalendarWrapper() {
         rel="noopener noreferrer"
         href="https://github.com/PetyoPlPetrov/calendar.github.io/blob/master/README.md"
       >
-        <h3>Github</h3>{" "}
+        <h3>Github</h3>
       </a>
     </div>
   );

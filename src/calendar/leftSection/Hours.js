@@ -70,7 +70,7 @@ const Line = ({ hour }) => {
               }}
               className={hasScheduledMeet ? "remove" : ""}
             ></p>
-                <p>{`${selectedMeet.name}, Room: ${selectedMeet.room}: ${selectedMeet.starts}:00 - ${selectedMeet.ends}:00`}</p>
+                <p>{`${selectedMeet.name}, Room: ${selectedMeet.room}, ${selectedMeet.starts}:00 - ${selectedMeet.ends}:00`}</p>
                
               </div>
             );
