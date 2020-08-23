@@ -82,27 +82,25 @@ function NewEvent({ event }) {
     setEvents(events);
     setEventCreation(false);
   }, [events, setEvents, setEventCreation, date, selectedDay]);
-
   const onChange = useCallback(
     (field) => {
       return ({ target: { value } }) => {
         error && setError(false);
         setForm((state) => {
-          const futureStart =
-            value === "" ? "" : Math.min(Math.max(value, ""), 23);
-          const futureEndsWhenStartChanged = Math.min(
-            Math.max(value, value === "" ? "" : parseInt(value) + 1),
-            24
-          );
           if (field === "starts") {
+            const futureStart =
+              value === "" ? "" : Math.max(0, Math.min(parseInt(value), 23));
+            const futureEndsWhenStartChanged = Math.min(
+              Math.max(value, value === "" ? "" : parseInt(value) + 1),
+              24
+            );
             return {
               ...state,
               [field]: futureStart,
-              ["ends"]: futureEndsWhenStartChanged,
+              ends: futureEndsWhenStartChanged,
             };
           }
-          const newEnds =
-            value === "" ? "" : Math.min(Math.max(value, starts + 1), 24);
+          const newEnds = value === "" ? "" : parseInt(value);
           if (field === "ends") {
             return { ...state, [field]: newEnds };
           }
@@ -111,13 +109,14 @@ function NewEvent({ event }) {
         });
       };
     },
-    [setForm, setError, error, starts]
+    [setForm, setError, error]
   );
 
   const [isTsarevecFree, isArbanasiFree] = useMemo(() => {
     return [
       (starts || starts === 0) &&
         ends &&
+        starts < ends &&
         checkAvailability(
           selectedDate,
           "Tsarevets",
@@ -126,6 +125,7 @@ function NewEvent({ event }) {
         ),
       (starts || starts === 0) &&
         ends &&
+        starts < ends &&
         checkAvailability(
           selectedDate,
           "Arbanasi",
@@ -144,6 +144,7 @@ function NewEvent({ event }) {
       <div>
         Starts
         <input
+          type="number"
           data-testid="start"
           value={starts}
           onChange={onChange("starts")}
@@ -155,8 +156,9 @@ function NewEvent({ event }) {
         <input
           data-testid="ends"
           value={ends}
+          type="number"
           onChange={onChange("ends")}
-          className={`${form.ends === "" ? "errorField" : ""}`}
+          className={`${form.ends === "" || starts > ends ? "errorField" : ""}`}
         ></input>
       </div>
       <div>
