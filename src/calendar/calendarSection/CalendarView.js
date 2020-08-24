@@ -15,9 +15,12 @@ function CalendarView() {
   const event = (events[selectedDate] || []).find((e) => e.ends === null) || {};
 
   return (
-    <div className="flex column calendar">
-      <Weekdays />
-      <CalendarDays />
+    <div className="flex column">
+      <div className='calendar'>
+        <Weekdays />
+        <CalendarDays />
+      </div>
+    
       {creatingEvent && <NewEvent event={event} />}
     </div>
   );

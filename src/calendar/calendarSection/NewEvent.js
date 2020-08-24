@@ -136,7 +136,7 @@ function NewEvent({ event }) {
   }, [checkAvailability, selectedDate, starts, ends]);
 
   return (
-    <div className="flex column down blackCell">
+    <div className="flex column down blackCell newevent">
       <h3 className="up">New Event</h3>
       <div>
         Name<input value={form.name} onChange={onChange("name")}></input>

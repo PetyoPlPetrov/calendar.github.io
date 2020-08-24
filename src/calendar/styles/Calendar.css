@@ -33,7 +33,7 @@
 }
 
 .line {
-  margin-left: 2px;
+  margin-left: var(--gap);
   border: 1px dashed var(--selectedDay);
   width: 100%;
 }
@@ -131,8 +131,11 @@
     flex-direction: column-reverse;
     align-items: stretch;
     padding: 1em;
+    gap:1em;
+    margin-left: 2em;
 
   }
+ 
   a {
     display: none;
   }
