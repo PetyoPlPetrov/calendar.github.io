@@ -17,10 +17,10 @@
   grid-gap: 1rem;
   background-color: var(--main-color);
   padding: 1em;
+  align-items: start;
 }
 
 .hours {
-  border: solid var(--weekdays) 2px;
   min-width: 20em;
   background-color: white;
 }
@@ -29,7 +29,6 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 1rem;
-  border: dashed var(--weekdays) 2px;
   background-color: white;
 }
 
@@ -42,8 +41,9 @@
 .weekdays {
   display: flex;
   justify-content: space-around;
-  background-color: var(--weekdays);
-  color: var(--main-color);
+  color: #99a1a7;
+  border-bottom: 1px solid rgba(166, 168, 179,0.12)
+
 }
 
 .hasEvent::after {
@@ -52,7 +52,12 @@
 
 .currentDay {
   background-color: var(--currentDay);
-  border-radius: 50%;
+  border-radius: 1em;
+  line-height: 2em;
+  -webkit-border-radius: 1em;
+    display: inline-block;
+    text-align: center;
+
 }
 
 .redCell {
@@ -93,8 +98,10 @@
   color: var(--currentDay);
   left: 1px;
   border: 1px solid;
-  border-radius: 28%;
+  border-radius: 0.5em;
   margin-right: 3px;
+  color: white;
+  background: var(--currentDay)
 }
 .up {
   margin-bottom: var(--gap);
@@ -104,6 +111,15 @@
 }
 .button {
   border-radius: 12%;
+}
+
+.calendar,.schedule{
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #fff;
+    border:0px;
+    padding: 0.5em;
+
 }
 @media only screen and (min-width: 800px) {
   .wrapper {
