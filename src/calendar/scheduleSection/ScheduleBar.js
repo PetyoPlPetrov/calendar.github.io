@@ -4,7 +4,7 @@ import ScheduleBody from "./ScheduleBody";
 
 function ScheduleBar() {
   return (
-    <div className="flex column">
+    <div id="leftPane" className="flex column">
       <ScheduleHeader />
       <ScheduleBody />
     </div>

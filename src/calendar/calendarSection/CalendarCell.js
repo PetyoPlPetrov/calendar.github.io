@@ -27,7 +27,7 @@ function Cell({ day }) {
 
   return (
     <div
-      className={`centered blackCell ${hasSomeEvent ? "hasEvent" : ""} ${
+      className={`centered blackCell cellCircle ${hasSomeEvent ? "hasEvent" : ""} ${
         isCurrentDate
           ? "currentDay"
           : parseInt(selectedDay) === cell

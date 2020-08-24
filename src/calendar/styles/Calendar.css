@@ -8,61 +8,95 @@
   --gap: 0.5em;
   --primaryButtonColor: #3678e5;
 }
-#root {
-  background-color: #cfd8de;
-}
+
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 2fr auto;
   grid-gap: 1rem;
-  background-color: var(--main-color);
   padding: 1em;
 }
 
+.mainDateHeading {
+  font-size: 2em;
+  font-weight: 500;
+}
+.weekDayHeading {
+  font-size: 1.5em;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(166, 168, 179,0.12);
+}
+
+#leftPane, #calendarBox {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: #fff;
+  padding: 1rem;
+}
+
 .hours {
-  border: solid var(--weekdays) 2px;
   min-width: 20em;
   background-color: white;
 }
 
+.hourRow {
+  flex-direction:row;
+  height: 1.5rem;
+}
+
 .days {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-gap: 1rem;
-  border: dashed var(--weekdays) 2px;
+  grid-template-columns: repeat(7, 2em);
+  grid-auto-rows: 2em;
   background-color: white;
+  grid-gap: var(--gap);
 }
 
 .line {
   margin-left: 2px;
   border: 1px dashed var(--selectedDay);
-  width: 100%;
+  flex: 10;
+}
+.timestamp {
+  flex: 1;
 }
 
 .weekdays {
   display: flex;
   justify-content: space-around;
-  background-color: var(--weekdays);
-  color: var(--main-color);
+  text-transform: uppercase;
+  color: #99a1a7;
+  text-align: center;
+  border-bottom: 1px solid rgba(166, 168, 179,0.12);
+  font-size: 0.7em;
 }
 
 .hasEvent::after {
   content: "*";
 }
 
-.currentDay {
-  background-color: var(--currentDay);
-  border-radius: 50%;
-}
-
 .redCell {
   background-color: var(--error);
 }
+
 .blackCell {
   color: var(--weekdays);
 }
 
-.selectedDay {
+.cellCircle {
+  cursor: pointer;
+  line-height: 2em;
+  border-radius: 1em;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  display: inline-block;
+  text-align: center;
+}
+
+.currentDay {
+  background-color: var(--currentDay);
+}
+
+.selectedDay{
   background-color: var(--selectedDay);
 }
 
@@ -86,15 +120,19 @@
   background-color: var(--primaryButtonColor);
   color: white;
 }
-.remove::before {
-  content: "x";
+.remove {
   position: relative;
   top: -7px;
-  color: var(--currentDay);
+  color: white;
+  background: var(--currentDay);
   left: 1px;
   border: 1px solid;
-  border-radius: 28%;
-  margin-right: 3px;
+  border-radius: 1em;
+  margin-right: 5px;
+  width: 1em;
+  line-height: 1em;
+  text-align: center;
+  cursor: pointer;
 }
 .up {
   margin-bottom: var(--gap);
@@ -106,8 +144,8 @@
   border-radius: 12%;
 }
 @media only screen and (min-width: 800px) {
-  .wrapper {
-    width: 60%;
+  #leftPane {
+    min-width: 40em;
   }
 }
 

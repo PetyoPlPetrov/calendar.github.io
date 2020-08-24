@@ -63,14 +63,14 @@ const ScheduleHour = ({ hour }) => {
           .map((selectedMeet) => {
             return (
               <div key={selectedMeet.name + selectedMeet.room} className="flex">
-                <p
+                <span
                   onClick={(e) => {
                     e.stopPropagation();
                     onEventRemove(selectedMeet);
                   }}
                   className={hasScheduledMeet ? "remove" : ""}
-                ></p>
-                <p>{`${selectedMeet.name}, Room: ${selectedMeet.room}, ${selectedMeet.starts}:00 - ${selectedMeet.ends}:00`}</p>
+                >x</span>
+                <div>{`${selectedMeet.name}, Room: ${selectedMeet.room}, ${selectedMeet.starts}:00 - ${selectedMeet.ends}:00`}</div>
               </div>
             );
           })}
@@ -83,8 +83,8 @@ function ScheduleBody() {
     <div className="flex column hours">
       {[...Array(24).keys()].map((e) => {
         return (
-          <div className="flex" key={e}>
-            <div className="blackCell">{`${e > 9 ? e : "0" + e}:00`}</div>
+          <div className="hourRow flex" key={e}>
+            <div className="blackCell timestamp">{`${e > 9 ? e : "0" + e}:00`}</div>
             <ScheduleHour hour={e} />
           </div>
         );
