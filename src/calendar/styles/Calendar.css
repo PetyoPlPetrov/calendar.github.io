@@ -42,8 +42,7 @@
   display: flex;
   justify-content: space-around;
   color: #99a1a7;
-  border-bottom: 1px solid rgba(166, 168, 179,0.12)
-
+  border-bottom: 1px solid rgba(166, 168, 179, 0.12);
 }
 
 .hasEvent::after {
@@ -55,9 +54,8 @@
   border-radius: 1em;
   line-height: 2em;
   -webkit-border-radius: 1em;
-    display: inline-block;
-    text-align: center;
-
+  display: inline-block;
+  text-align: center;
 }
 
 .redCell {
@@ -100,8 +98,8 @@
   border: 1px solid;
   border-radius: 0.5em;
   margin-right: 3px;
-  color: white;
-  background: var(--currentDay)
+  color: var(--weekdays);
+  background: var(--currentDay);
 }
 .up {
   margin-bottom: var(--gap);
@@ -113,13 +111,13 @@
   border-radius: 12%;
 }
 
-.calendar,.schedule{
+.calendar,
+.schedule {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    background: #fff;
-    border:0px;
-    padding: 0.5em;
-
+  border-radius: 10px;
+  background: #fff;
+  border: 0px;
+  padding: 0.5em;
 }
 @media only screen and (min-width: 800px) {
   .wrapper {
@@ -131,6 +129,9 @@
   .wrapper {
     display: flex;
     flex-direction: column-reverse;
+    align-items: stretch;
+    padding: 1em;
+
   }
   a {
     display: none;
