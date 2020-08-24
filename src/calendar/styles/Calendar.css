@@ -32,6 +32,7 @@
   background-color: white;
 }
 
+
 .line {
   margin-left: var(--gap);
   border: 1px dashed var(--selectedDay);
@@ -122,6 +123,9 @@
 @media only screen and (min-width: 800px) {
   .wrapper {
     width: 60%;
+  }
+  .days .blackCell{
+    width: 84%;
   }
 }
 
