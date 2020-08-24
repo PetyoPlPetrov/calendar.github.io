@@ -22,7 +22,7 @@ function Cell({ day }) {
 
   let currentDate = cell + date.format("MMMM") + date.format("Y");
   const hasSomeEvent = Array.isArray(events[currentDate])
-    ? events[currentDate].length > 0
+    ? events[currentDate].some((e) => e.created)
     : false;
 
   return (

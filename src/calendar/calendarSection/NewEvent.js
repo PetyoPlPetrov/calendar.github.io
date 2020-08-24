@@ -100,7 +100,7 @@ function NewEvent({ event }) {
               ends: futureEndsWhenStartChanged,
             };
           }
-          const newEnds = value === "" ? "" :Math.min( parseInt(value),24);
+          const newEnds = value === "" ? "" : Math.min(parseInt(value), 24);
           if (field === "ends") {
             return { ...state, [field]: newEnds };
           }

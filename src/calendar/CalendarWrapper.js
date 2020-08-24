@@ -4,6 +4,8 @@ import CalendarView from "./calendarSection/CalendarView";
 import moment from "moment";
 import useStorage from "./utils/useStorage";
 import { fillRooms, fetchData } from "./utils/";
+import getSelectedDay from "./utils/getSelectedDay";
+import usePrev from "./utils/usePrev";
 
 export const DateContext = React.createContext();
 
@@ -12,6 +14,11 @@ function CalendarWrapper() {
   const [creatingEvent, setEventCreation] = useState(false);
   const [events, setEvents] = useStorage("Store.events", {});
   const [, setRooms] = useStorage("Store.roomAvailability", {});
+  const [day] = useStorage("Store.selectedDay", "");
+  const selectedDate = getSelectedDay(date, day);
+  const prevSelected = usePrev(selectedDate);
+  const prevEventCreation = usePrev(creatingEvent);
+  console.log(selectedDate, prevSelected);
   useStorage("Store.selectedDay", moment().format("D"));
 
   useEffect(() => {
@@ -47,6 +54,30 @@ function CalendarWrapper() {
       setRooms(fillRooms(updatedEvents));
     });
   }, [events, setEvents, setRooms]);
+
+  useEffect(() => {
+    if (prevEventCreation === creatingEvent) {
+      return;
+    }
+    let hasAnEmptyEvent = (events[prevSelected] || []).some(
+      (e) => e.ends === null
+    );
+
+    if (hasAnEmptyEvent) {
+      events[prevSelected] = (events[prevSelected] || []).filter(
+        (e) => e.created !== false
+      );
+      setEvents(events);
+      setRooms(fillRooms(events));
+    }
+  }, [
+    creatingEvent,
+    prevEventCreation,
+    events,
+    setEvents,
+    setRooms,
+    prevSelected,
+  ]);
 
   return (
     <div className="wrapper">
