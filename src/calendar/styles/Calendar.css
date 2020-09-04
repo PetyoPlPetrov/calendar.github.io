@@ -32,7 +32,6 @@
   background-color: white;
 }
 
-
 .line {
   margin-left: var(--gap);
   border: 1px dashed var(--selectedDay);
@@ -68,6 +67,7 @@
 
 .selectedDay {
   background-color: var(--selectedDay);
+  border-radius: 1em;
 }
 
 .hasScheduledMeet {
@@ -120,14 +120,19 @@
   border: 0px;
   padding: 0.5em;
 }
+.header {
+  background-color: #fbf9f9;
+  box-shadow: 0 2px 20px #d6d6e0;
+}
+.days .blackCell {
+  height: 2em;
+}
 @media only screen and (min-width: 800px) {
   .wrapper {
     width: 60%;
   }
-  .days .blackCell{
-    width: 84%;
-  }
 }
+
 
 @media only screen and (max-width: 400px) {
   .wrapper {
@@ -135,15 +140,12 @@
     flex-direction: column-reverse;
     align-items: stretch;
     padding: 1em;
-    gap:1em;
+    gap: 1em;
     margin-left: 2em;
-
   }
-  .calendar{
+  .calendar {
     margin-bottom: 1em;
   }
+
  
-  a {
-    display: none;
-  }
 }

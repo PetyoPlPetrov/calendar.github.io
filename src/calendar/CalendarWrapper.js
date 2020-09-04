@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ScheduleBar from "./scheduleSection/ScheduleBar";
 import CalendarView from "./calendarSection/CalendarView";
 import moment from "moment";
+
 import useStorage from "./utils/useStorage";
 import { fillRooms, fetchData } from "./utils/";
 import getSelectedDay from "./utils/getSelectedDay";
@@ -18,7 +19,6 @@ function CalendarWrapper() {
   const selectedDate = getSelectedDay(date, day);
   const prevSelected = usePrev(selectedDate);
   const prevEventCreation = usePrev(creatingEvent);
-  console.log(selectedDate, prevSelected);
   useStorage("Store.selectedDay", moment().format("D"));
 
   useEffect(() => {
@@ -87,14 +87,7 @@ function CalendarWrapper() {
         <ScheduleBar />
         <CalendarView />
       </DateContext.Provider>
-      <a
-        className="blackCell"
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://github.com/PetyoPlPetrov/calendar.github.io/blob/master/README.md"
-      >
-        <h3>Github</h3>
-      </a>
+  
     </div>
   );
 }

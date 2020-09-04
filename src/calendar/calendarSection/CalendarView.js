@@ -16,11 +16,11 @@ function CalendarView() {
 
   return (
     <div className="flex column">
-      <div className='calendar'>
+      <div className="calendar">
         <Weekdays />
         <CalendarDays />
       </div>
-    
+
       {creatingEvent && <NewEvent event={event} />}
     </div>
   );

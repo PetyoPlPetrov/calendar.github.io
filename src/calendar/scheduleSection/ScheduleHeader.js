@@ -15,12 +15,12 @@ function ScheduleHeader() {
   let currentWeekDay = date.format("dddd");
 
   return (
-    <>
+    <div className="header">
       <h1 className="flex centered blackCell">{`${
         selectedDay || currentDay
       } ${currentMonth} ${currentYear}`}</h1>
       <h2 className="flex centered blackCell"> {currentWeekDay}</h2>
-    </>
+    </div>
   );
 }
 
