@@ -87,7 +87,6 @@ function CalendarWrapper() {
         <ScheduleBar />
         <CalendarView />
       </DateContext.Provider>
-  
     </div>
   );
 }

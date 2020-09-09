@@ -133,7 +133,6 @@
   }
 }
 
-
 @media only screen and (max-width: 400px) {
   .wrapper {
     display: flex;
@@ -146,6 +145,4 @@
   .calendar {
     margin-bottom: 1em;
   }
-
- 
 }

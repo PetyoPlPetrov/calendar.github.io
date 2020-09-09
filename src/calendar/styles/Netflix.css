@@ -7,8 +7,6 @@
 }
 .item img {
   max-width: 100%;
-  
-  
 }
 
 /* move left so they dont overlap */
@@ -29,12 +27,11 @@
 .container .item:hover {
   transform: scale(1.5);
   z-index: 1;
-
 }
 /* moving items to right */
 .item:hover ~ .item {
   transform: translateX(25%);
 }
-.item img:hover{
+.item img:hover {
   border-radius: 1em;
 }
