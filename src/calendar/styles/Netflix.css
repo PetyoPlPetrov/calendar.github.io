@@ -35,3 +35,12 @@
 .item img:hover {
   border-radius: 1em;
 }
+
+.container.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+.container.shown {
+  display: flex;
+  transition: all 2s ease-in;
+}
