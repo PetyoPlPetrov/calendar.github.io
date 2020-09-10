@@ -1,6 +1,7 @@
 .container {
   display: flex;
   margin-top: 50px;
+  height: 0;
 }
 .item {
   transition: transform 500ms;
@@ -39,8 +40,21 @@
 .container.hidden {
   visibility: hidden;
   opacity: 0;
+  height: 0;
 }
 .container.shown {
   display: flex;
+  height: 14rem;
+  opacity: 1;
   transition: all 2s ease-in;
+}
+
+@media only screen and (max-width: 400px) {
+  .container.shown {
+      height: 4rem;
+      opacity: 1;
+      transition: all 2s ease-in;
+
+
+  }
 }
